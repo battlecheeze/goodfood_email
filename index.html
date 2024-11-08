@@ -1,0 +1,83 @@
+<html>
+  <head>
+
+    <title>Images - CIBC Tetris</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700" rel="stylesheet">
+
+    <style>
+      html {
+        position: relative;
+        min-height: 100%;
+        font-size: 16px;
+      }
+      @media (max-width: 1000px) {
+        html {
+          font-size: calc(12px + .4vw);
+        }
+      }
+      body {
+        font-family: 'Work Sans', sans-serif;
+        background-color: lightgray;
+      }
+      img {
+        max-width: 268px;
+        object-fit: scale-down;
+      }
+      p {
+        word-wrap: break-word;
+      }
+      .container {
+        padding: 15px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+        grid-gap: 15px;
+        justify-items: center;
+      }
+      .container div {
+        padding: 15px;
+        border: 1px solid lightblue;
+        background: #fff;
+        max-width: 268px;
+      }
+    </style>
+  <meta charset="UTF-8"></head>
+  <body>
+    <div class="container">
+      <div><img src="images/android-fix-spacer.png" alt=""  xt="SPIMAGE"  spname="android-fix-spacer.png"></div>
+      <div><img src="images/cibc-goodfood-logo.png" alt=""  xt="SPIMAGE"  spname="cibc-goodfood-logo.png"></div>
+      <div><img src="images/header.jpeg" alt=""  xt="SPIMAGE"  spname="header.jpeg"></div>
+      <div><img src="images/icon-apple.png" alt=""  xt="SPIMAGE"  spname="icon-apple.png"></div>
+      <div><img src="images/icon-facebook-v2.png" alt=""  xt="SPIMAGE"  spname="icon-facebook-v2.png"></div>
+      <div><img src="images/icon-instagram-v2.png" alt=""  xt="SPIMAGE"  spname="icon-instagram-v2.png"></div>
+      <div><img src="images/icon-twitter-v2.png" alt=""  xt="SPIMAGE"  spname="icon-twitter-v2.png"></div>
+      <div><img src="images/icon-youtube-v2.png" alt=""  xt="SPIMAGE"  spname="icon-youtube-v2.png"></div>
+      <div><img src="images/spacer-640.png" alt=""  xt="SPIMAGE"  spname="spacer-640.png"></div>
+      <div><img src="images/icon-rating-v4.png" alt=""  xt="SPIMAGE"  spname="icon-rating-v4.png"></div>
+      <div><img src="images/header_v2.jpeg" alt=""  xt="SPIMAGE"  spname="header_v2.jpeg"></div>
+      <div><img src="images/header_v2.jpeg" alt=""  xt="SPIMAGE"  spname="header_v2.jpeg"></div>
+      <div><img src="images/cibc_logo.png" alt=""  xt="SPIMAGE"  spname="cibc_logo.png"></div>
+      <div><img src="images/goodfood_logo.png" alt=""  xt="SPIMAGE"  spname="goodfood_logo.png"></div>
+
+
+    </div>
+    <script>
+      $(function() {
+        var allImages = document.getElementsByTagName('img');
+        for(var i = 0; i < allImages.length ; i++) {
+          var src = allImages[i].src;
+          var src = src.replace("http:","https:");
+          var width = allImages[i].naturalWidth/2;
+          var height = allImages[i].naturalHeight/2;
+          var markup = "<p><strong>img src:</strong><br>"+src+"<br><br><strong>img width:</strong><br>"+width+"<br><br><strong>img height:</strong><br>"+height+"</p>";
+          $(allImages[i]).after(markup);
+
+          allImages[i].addEventListener('load', function() {
+            console.log('My width is: ', this.naturalWidth);
+            console.log('My height is: ', this.naturalHeight);
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
